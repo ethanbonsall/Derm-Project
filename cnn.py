@@ -111,17 +111,17 @@ test_generator = test_datagen.flow_from_directory(
 # Build the model
 model = models.Sequential([
     # First Convolutional Block
-    layers.Conv2D(64, (3, 3), activation='relu', input_shape=(128, 128, 3)),
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)),
     layers.MaxPooling2D((2, 2)),
     layers.Dropout(0.3),  # Dropout to prevent overfitting
     
     # Second Convolutional Block
-    layers.Conv2D(128, (3, 3), activation='relu'),
+    layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     layers.Dropout(0.3),  # Dropout to prevent overfitting
     
     # Third Convolutional Block
-    layers.Conv2D(256, (3, 3), activation='relu'),
+    layers.Conv2D(128, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
     layers.Dropout(0.3),  # Dropout to prevent overfitting
     
@@ -130,7 +130,7 @@ model = models.Sequential([
     layers.Flatten(),
     
     # Dense Layers
-    layers.Dense(512, activation='relu'),  # Increase Dense layer size
+    layers.Dense(256, activation='relu'),  # Increase Dense layer size
     layers.Dropout(0.5),  # Dropout for Dense layer to prevent overfitting
     layers.Dense(1, activation='sigmoid')  # Binary classification output
 ])
